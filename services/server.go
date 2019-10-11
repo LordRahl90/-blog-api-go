@@ -7,11 +7,18 @@ import (
 	"time"
 
 	"github.com/go-chi/chi"
+	"github.com/jinzhu/gorm"
 )
 
 //Server - Struct to contain the server's necessity
 type Server struct {
 	Router chi.Router
+	DB     Database
+}
+
+//Database - Struct to house the database and also use for other integration stuffs
+type Database struct {
+	DB *gorm.DB
 }
 
 //NewServer Create a new Server by initializing a new chi route
